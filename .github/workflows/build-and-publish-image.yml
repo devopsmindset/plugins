@@ -17,7 +17,7 @@ permissions:
 
 env:
   REGISTRY: ghcr.io
-  ORG: headlamp-k8s
+  ORG: devopsmindset
   PLUGIN: ${{ github.event.inputs.plugin }}
   IMAGE_NAME: headlamp-plugin-${{ github.event.inputs.plugin }}
 jobs:
