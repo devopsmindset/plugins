@@ -36,9 +36,14 @@ export function getDisplayCurrency(): string {
   return config?.displayCurrency ?? '$';
 }
 
+// The default window is a day: a 14-day allocation query takes minutes on a cluster with heavy pod
+// churn (one with tens of thousands of short-lived Job pods in two weeks), longer than the reverse
+// proxies in front of Headlamp wait, so the cost columns and sections stayed empty.
+export const DEFAULT_TIMESPAN = '24h';
+
 export function getDisplayTimespan(): string {
   const configStore = getConfigStore();
   const config = configStore.get();
 
-  return config?.defaultTimespan ?? '14d';
+  return config?.defaultTimespan ?? DEFAULT_TIMESPAN;
 }

@@ -4,6 +4,7 @@ import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
 import Switch from '@mui/material/Switch';
 import TextField from '@mui/material/TextField';
+import { DEFAULT_TIMESPAN } from './utils';
 
 export function Settings(props) {
   const { data, onDataChange } = props;
@@ -48,7 +49,7 @@ export function Settings(props) {
       value: (
         <>
           <Select
-            value={data?.defaultTimespan ?? '14d'}
+            value={data?.defaultTimespan ?? DEFAULT_TIMESPAN}
             onChange={e => onDataChange({ ...data, defaultTimespan: e.target.value })}
           >
             <MenuItem value={'today'}>Today</MenuItem>
